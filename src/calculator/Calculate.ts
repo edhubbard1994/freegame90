@@ -1,4 +1,4 @@
-const nodeCallsPy = require("node-calls-python")
+import nodeCallsPy from "node-calls-python"
 const python = nodeCallsPy.interpreter
 
 export enum PropertyType {
@@ -37,10 +37,13 @@ export type DataInput = {
 
 
 
-export const calculateData = (data: DataInput) => {
+export const calculateData = (data: DataInput): Calculations => {
+    let result;
     python.import("./src/calculator/model.py").then(async function(pymodule: any) {
-    const result = python.callSync(pymodule, "run_model", data);
-    console.log(result);
+        result = python.callSync(pymodule, "run_model", data);
+        console.log(result);
+
     })
+    return {numberOfYears: 5, calculations: []}
 
 }

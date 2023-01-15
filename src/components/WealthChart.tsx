@@ -1,8 +1,10 @@
+import { DatumObject } from "@visx/shape/lib/types";
 import { AnimatedAxis, // any of these can be non-animated equivalents
   AnimatedGrid,
   AnimatedLineSeries,
   XYChart,
   Tooltip,} from "@visx/xychart"
+import { RenderTooltipParams } from "@visx/xychart/lib/components/Tooltip";
 
 
 const data1 = [
@@ -36,14 +38,15 @@ export const WealtChart = () => {
                 snapTooltipToDatumY
                 showVerticalCrosshair
                 showSeriesGlyphs
-                renderTooltip={({ tooltipData, colorScale }) => (
+                renderTooltip={({ tooltipData, colorScale }: RenderTooltipParams<any>) => (
                     <div>
-                    <div style={{ color: colorScale(tooltipData.nearestDatum.key) }}>
-                        {tooltipData.nearestDatum.key}
+
+                    <div style={{ color: colorScale ? colorScale(tooltipData?.nearestDatum?.key || '') : '' }}>
+                        {tooltipData?.nearestDatum?.key}
                     </div>
-                    {accessors.xAccessor(tooltipData.nearestDatum.datum)}
+                    {accessors.xAccessor(tooltipData?.nearestDatum?.datum)}
                     {', '}
-                    {accessors.yAccessor(tooltipData.nearestDatum.datum)}
+                    {accessors.yAccessor(tooltipData?.nearestDatum?.datum)}
                     </div>
                 )}
                 />

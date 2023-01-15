@@ -17,13 +17,13 @@ WORKDIR /home/freegame/app
 
 RUN npm i
 
-COPY ../ .
+COPY ./ .
 
-RUN npm run next build
+RUN npm run build
 
 USER freegame
 
-CMD ["npm", "run", "next", "start"]
+CMD ["npm", "run",  "start"]
 
 
 
