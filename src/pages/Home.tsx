@@ -1,7 +1,7 @@
 import { MdHouse } from "react-icons/md";
 import { FaBars } from "react-icons/fa";
 import { HomeNav } from "@/components/HomeNav";
-import { WealtChart } from "@/components/WealthChart";
+import { WealthChart } from "@/components/WealthChart";
 
 export const HomePage = () => {
 
@@ -11,7 +11,7 @@ export const HomePage = () => {
                 <HomeNav/>
             </div>
             <div>
-                <WealtChart/>
+                <WealthChart/>
             </div>
         </>
     )
