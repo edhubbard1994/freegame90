@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  free90:
+    build: .
+    image: free90
+    volumes:
+      - ./:/home/freegame/app/
+    ports:
+      - 3000:3000
+
+networks:
+  external:
+   name: free90
